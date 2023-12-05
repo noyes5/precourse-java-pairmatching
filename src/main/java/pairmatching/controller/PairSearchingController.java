@@ -10,7 +10,7 @@ import pairmatching.domain.Level;
 import pairmatching.domain.Mission;
 import pairmatching.domain.PairResult;
 import pairmatching.domain.repository.PairResults;
-import pairmatching.domain.dto.ParingInfo;
+import pairmatching.domain.ParingInfo;
 import pairmatching.util.DataInputHandler;
 import pairmatching.view.InputView;
 import pairmatching.view.OutputView;

@@ -8,7 +8,7 @@ import java.util.Set;
 import java.util.stream.Collectors;
 import pairmatching.domain.Level;
 import pairmatching.domain.PairResult;
-import pairmatching.domain.dto.ParingInfo;
+import pairmatching.domain.ParingInfo;
 
 public class PairResults {
     private static final Map<ParingInfo, PairResult> pairResults = new HashMap<>();
