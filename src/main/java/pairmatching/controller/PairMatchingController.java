@@ -13,6 +13,7 @@ import pairmatching.domain.repository.PairResults;
 import pairmatching.domain.ParingInfo;
 import pairmatching.domain.Mission;
 import pairmatching.domain.command.RematchCommand;
+import pairmatching.util.DataInputHandler;
 import pairmatching.view.InputView;
 import pairmatching.view.OutputView;
 
@@ -50,26 +51,16 @@ public class PairMatchingController implements ControllerHandler {
     }
 
     private RematchCommand getRematchCommand() {
-        while (true) {
-            try {
-                return inputView.readRematchCommand();
-            } catch (IllegalArgumentException exception) {
-                outputView.printExceptionMessage(exception);
-            }
-        }
+        return DataInputHandler.get(inputView::readRematchCommand, outputView::printExceptionMessage);
     }
 
     private ParingInfo readParingInfo() {
-        while (true) {
-            try {
-                List<String> paringInfo = inputView.readParingInfo();
-                Course course = Course.from(paringInfo.get(COURSE_INDEX));
-                Level level = Level.from(paringInfo.get(LEVEL_INDEX));
-                Mission mission = new Mission(paringInfo.get(MISSION_INDEX));
-                return new ParingInfo(course, level, mission);
-            } catch (IllegalArgumentException exception) {
-                outputView.printExceptionMessage(exception);
-            }
-        }
+        return DataInputHandler.get(() -> {
+            List<String> paringInfo = inputView.readParingInfo();
+            Course course = Course.from(paringInfo.get(COURSE_INDEX));
+            Level level = Level.from(paringInfo.get(LEVEL_INDEX));
+            Mission mission = new Mission(paringInfo.get(MISSION_INDEX));
+            return new ParingInfo(course, level, mission);
+        }, outputView::printExceptionMessage);
     }
 }

@@ -11,7 +11,7 @@ import pairmatching.view.OutputView;
 public class PairController {
     private final InputView inputView;
     private final OutputView outputView;
-    private final Map<MainCommand, ControllerHandler > controllers;
+    private final Map<MainCommand, ControllerHandler> controllers;
 
     public PairController(InputView inputView, OutputView outputView) {
         this.inputView = inputView;
@@ -22,7 +22,7 @@ public class PairController {
     }
 
     private void crewSetting() {
-        new CrewSettingController(outputView);
+        new CrewSettingController(inputView, outputView);
     }
 
     private void initializeController() {
@@ -30,7 +30,6 @@ public class PairController {
         controllers.put(MainCommand.PAIR_SEARCHING, new PairSearchingController(inputView, outputView));
         controllers.put(MainCommand.PAIR_INITIALIZING, new PairInitializeController(inputView, outputView));
         controllers.put(MainCommand.APPLICATION_EXIT, new ApplicationExitController(inputView, outputView));
-
     }
 
     public void play() {
@@ -42,13 +41,7 @@ public class PairController {
     }
 
     private MainCommand inputMainCommand() {
-        while (true) {
-            try {
-                return inputView.readMainCommand();
-            } catch (IllegalArgumentException exception) {
-                outputView.printExceptionMessage(exception);
-            }
-        }
+        return DataInputHandler.get(inputView::readMainCommand, outputView::printExceptionMessage);
     }
 
     private void progress(MainCommand mainCommand) {

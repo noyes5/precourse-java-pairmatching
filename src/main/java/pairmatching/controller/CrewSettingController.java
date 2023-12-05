@@ -7,15 +7,18 @@ import java.io.IOException;
 import pairmatching.domain.Course;
 import pairmatching.domain.repository.Crew;
 import pairmatching.domain.Crews;
+import pairmatching.view.InputView;
 import pairmatching.view.OutputView;
 
 public class CrewSettingController {
     public static final String BACKEND_SOURCE_PATH = "src/main/resources/backend-crew.md";
     public static final String FRONTEND_SOURCE_PATH = "src/main/resources/frontend-crew.md";
 
+    private final InputView inputView;
     private final OutputView outputView;
 
-    public CrewSettingController(OutputView outputView) {
+    public CrewSettingController(InputView inputView, OutputView outputView) {
+        this.inputView = inputView;
         this.outputView = outputView;
         matchingInitialize();
     }
