@@ -1,7 +1,7 @@
 package pairmatching.view;
 
 public class OutputView {
-    public void printExceptionMessage(IllegalArgumentException exception) {
+    public void printExceptionMessage(Exception exception) {
         System.out.println(exception.getMessage());
     }
 
