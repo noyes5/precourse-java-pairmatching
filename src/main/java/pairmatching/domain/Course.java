@@ -20,5 +20,4 @@ public enum Course {
                 .findFirst()
                 .orElseThrow(() -> new IllegalArgumentException(INVALID_COURSE_NAME.getMessage()));
     }
-
 }
