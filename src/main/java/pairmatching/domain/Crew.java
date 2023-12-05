@@ -39,4 +39,8 @@ public class Crew {
                 ", name='" + name + '\'' +
                 '}';
     }
+
+    public boolean Of(Course course) {
+        return this.course == course;
+    }
 }

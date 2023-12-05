@@ -14,9 +14,6 @@ public class Mission {
         this.name = name;
     }
 
-    private void validate(String name) {
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) {

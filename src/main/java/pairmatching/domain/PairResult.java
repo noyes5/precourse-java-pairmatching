@@ -67,6 +67,10 @@ public class PairResult {
     public List<Set<Crew>> getPairResult() {
         return Collections.unmodifiableList(pairResult);
     }
+
+    public ParingInfo getPairInfo() {
+        return this.paringInfo;
+    }
 }
 
 

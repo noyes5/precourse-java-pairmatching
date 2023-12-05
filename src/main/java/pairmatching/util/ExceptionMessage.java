@@ -7,6 +7,7 @@ public enum ExceptionMessage {
     INVALID_COURSE_NAME("해당하는 코스명이 없습니다."),
     INVALID_LEVEL_NAME("해당하는 레벨명이 없습니다."),
     INVALID_INPUT_BLANK("빈 값은 입력할수 없습니다."),
+    INVALID_REMATCH_ATTEMPTS("3번 까지만 재매칭할 수 있습니다."),
     NO_MISSION_IN_LEVEL("미션이 해당하는 레벨에 없습니다."),
     NO_MATCH_HISTORY("매칭 이력이 없습니다.");
 

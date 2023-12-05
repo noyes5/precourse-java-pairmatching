@@ -5,6 +5,7 @@ import static pairmatching.util.Constants.NEW_LINE;
 import camp.nextstep.edu.missionutils.Console;
 import java.util.List;
 import pairmatching.domain.command.MainCommand;
+import pairmatching.domain.command.RematchCommand;
 import pairmatching.util.InputValidator;
 import pairmatching.util.StringUtils;
 
@@ -27,6 +28,13 @@ public class InputView {
         return StringUtils.splitByComma(Console.readLine());
     }
 
+    public RematchCommand readRematchCommand() {
+        System.out.println(Message.INPUT_REMATCH.message);
+        String input = Console.readLine();
+        InputValidator.validateRematch(input);
+        return RematchCommand.from(input);
+    }
+
 
     private enum Message {
         INPUT_PAIR_COMMAND("#############################################" + NEW_LINE
@@ -37,7 +45,9 @@ public class InputView {
                 + "  - 레벨3:" + NEW_LINE
                 + "  - 레벨4: 성능개선 | 배포" + NEW_LINE
                 + "  - 레벨5:" + NEW_LINE
-                + "############################################");
+                + "############################################"),
+        INPUT_REMATCH("매칭 정보가 있습니다. 다시 매칭하시겠습니까?" + NEW_LINE
+                + "네 | 아니오");
 
         private final String message;
 

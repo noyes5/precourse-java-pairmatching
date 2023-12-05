@@ -3,19 +3,22 @@ package pairmatching.controller;
 import static pairmatching.util.Constants.COURSE_INDEX;
 import static pairmatching.util.Constants.LEVEL_INDEX;
 import static pairmatching.util.Constants.MISSION_INDEX;
+import static pairmatching.util.ExceptionMessage.CANNOT_MATCH;
+import static pairmatching.util.ExceptionMessage.INVALID_REMATCH_ATTEMPTS;
 
 import java.util.List;
-import jdk.internal.util.xml.impl.Pair;
 import pairmatching.domain.Course;
 import pairmatching.domain.Level;
 import pairmatching.domain.PairResult;
 import pairmatching.domain.PairResults;
 import pairmatching.domain.ParingInfo;
 import pairmatching.domain.Mission;
+import pairmatching.domain.command.RematchCommand;
 import pairmatching.view.InputView;
 import pairmatching.view.OutputView;
 
 public class PairMatchingController implements ControllerHandler {
+    private final static int MAX_ATTEMPTS = 3;
     private final InputView inputView;
     private final OutputView outputView;
     private PairResult result;
@@ -31,8 +34,30 @@ public class PairMatchingController implements ControllerHandler {
     public void process() {
         ParingInfo paringInfo = readParingInfo();
         result = new PairResult(paringInfo);
+        if (PairResults.containsMatch(paringInfo)) {
+            RematchCommand rematchCommand = getRematchCommand();
+            if (rematchCommand.isNo()) {
+                process();
+            }
+            attempts++;
+            if (attempts > MAX_ATTEMPTS) {
+                throw new IllegalArgumentException(INVALID_REMATCH_ATTEMPTS.getMessage());
+            }
+        }
+        if (PairResults.hasSamePairInSameLevel(result)) {
+        }
         PairResults.addPairResult(paringInfo, result);
         outputView.printPairResult(result);
+    }
+
+    private RematchCommand getRematchCommand() {
+        while (true) {
+            try {
+                return inputView.readRematchCommand();
+            } catch (IllegalArgumentException exception) {
+                outputView.printExceptionMessage(exception);
+            }
+        }
     }
 
     private ParingInfo readParingInfo() {
@@ -47,9 +72,5 @@ public class PairMatchingController implements ControllerHandler {
                 outputView.printExceptionMessage(exception);
             }
         }
-    }
-
-    public void selectPairingOption() {
-
     }
 }
