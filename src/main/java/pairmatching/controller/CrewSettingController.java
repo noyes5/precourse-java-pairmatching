@@ -25,7 +25,7 @@ public class CrewSettingController {
     private void matchingInitialize() {
         try {
             readCrewsFromFile(BACKEND_SOURCE_PATH, Course.BACKEND);
-            readCrewsFromFile(FRONTEND_SOURCE_PATH, Course.BACKEND);
+            readCrewsFromFile(FRONTEND_SOURCE_PATH, Course.FRONTEND);
         } catch (IOException exception) {
             outputView.printExceptionMessage(exception);
         }
