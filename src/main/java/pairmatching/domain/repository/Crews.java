@@ -1,4 +1,4 @@
-package pairmatching.domain;
+package pairmatching.domain.repository;
 
 import static pairmatching.util.ExceptionMessage.INVALID_CREW_NAME;
 
@@ -6,7 +6,8 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
-import pairmatching.domain.repository.Crew;
+import pairmatching.domain.Course;
+import pairmatching.domain.Crew;
 
 public class Crews {
     private static final List<Crew> crews = new ArrayList<>();

@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.stream.Collectors;
+import pairmatching.domain.Crew;
 import pairmatching.domain.Level;
 import pairmatching.domain.PairResult;
 import pairmatching.domain.ParingInfo;

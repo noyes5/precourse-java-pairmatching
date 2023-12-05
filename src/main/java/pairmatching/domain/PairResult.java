@@ -8,7 +8,7 @@ import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
-import pairmatching.domain.repository.Crew;
+import pairmatching.domain.repository.Crews;
 
 public class PairResult {
     private final ParingInfo paringInfo;

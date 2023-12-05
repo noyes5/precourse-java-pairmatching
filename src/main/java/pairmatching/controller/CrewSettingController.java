@@ -5,8 +5,8 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import pairmatching.domain.Course;
-import pairmatching.domain.repository.Crew;
-import pairmatching.domain.Crews;
+import pairmatching.domain.Crew;
+import pairmatching.domain.repository.Crews;
 import pairmatching.view.InputView;
 import pairmatching.view.OutputView;
 
