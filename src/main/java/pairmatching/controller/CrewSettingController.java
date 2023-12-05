@@ -1,14 +1,12 @@
 package pairmatching.controller;
 
 import java.io.BufferedReader;
-import java.io.DataInput;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import pairmatching.domain.Course;
-import pairmatching.domain.Crew;
+import pairmatching.domain.repository.Crew;
 import pairmatching.domain.Crews;
-import pairmatching.util.DataInputHandler;
 import pairmatching.view.OutputView;
 
 public class CrewSettingController {

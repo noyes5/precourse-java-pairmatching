@@ -1,9 +1,11 @@
-package pairmatching.domain;
+package pairmatching.domain.repository;
 
 import java.util.Arrays;
 import java.util.EnumMap;
 import java.util.List;
 import java.util.Map;
+import pairmatching.domain.Level;
+import pairmatching.domain.Mission;
 
 public class Missions {
     private static final Map<Level, List<Mission>> missions = new EnumMap<>(Level.class);

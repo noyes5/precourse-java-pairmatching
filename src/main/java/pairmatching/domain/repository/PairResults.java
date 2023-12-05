@@ -1,12 +1,13 @@
-package pairmatching.domain;
+package pairmatching.domain.repository;
 
-import java.util.ArrayList;
-import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.stream.Collectors;
+import pairmatching.domain.Level;
+import pairmatching.domain.PairResult;
+import pairmatching.domain.ParingInfo;
 
 public class PairResults {
     private static final Map<ParingInfo, PairResult> pairResults = new HashMap<>();

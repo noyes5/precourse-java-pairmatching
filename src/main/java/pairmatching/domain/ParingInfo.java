@@ -3,6 +3,7 @@ package pairmatching.domain;
 import static pairmatching.util.ExceptionMessage.NO_MISSION_IN_LEVEL;
 
 import java.util.Objects;
+import pairmatching.domain.repository.Missions;
 
 public class ParingInfo {
     private Course course;

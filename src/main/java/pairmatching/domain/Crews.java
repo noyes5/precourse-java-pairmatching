@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
+import pairmatching.domain.repository.Crew;
 
 public class Crews {
     private static final List<Crew> crews = new ArrayList<>();

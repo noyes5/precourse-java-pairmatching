@@ -7,7 +7,7 @@ import static pairmatching.util.ExceptionMessage.NO_MATCH_HISTORY;
 import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
-import pairmatching.domain.Crew;
+import pairmatching.domain.repository.Crew;
 import pairmatching.domain.PairResult;
 
 public class OutputView {

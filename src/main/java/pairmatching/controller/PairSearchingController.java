@@ -9,7 +9,7 @@ import pairmatching.domain.Course;
 import pairmatching.domain.Level;
 import pairmatching.domain.Mission;
 import pairmatching.domain.PairResult;
-import pairmatching.domain.PairResults;
+import pairmatching.domain.repository.PairResults;
 import pairmatching.domain.ParingInfo;
 import pairmatching.view.InputView;
 import pairmatching.view.OutputView;

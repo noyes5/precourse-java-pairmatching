@@ -1,7 +1,6 @@
 package pairmatching.view;
 
 import static pairmatching.util.Constants.NEW_LINE;
-import static pairmatching.util.ExceptionMessage.INVALID_COMMAND;
 
 import camp.nextstep.edu.missionutils.Console;
 import java.util.List;
