@@ -1,6 +1,7 @@
 package pairmatching.view;
 
 import static pairmatching.util.Constants.NEW_LINE;
+import static pairmatching.util.ExceptionMessage.INVALID_COMMAND;
 
 import camp.nextstep.edu.missionutils.Console;
 import java.util.List;
@@ -20,12 +21,13 @@ public class InputView {
 
     public List<String> readParingInfo() {
         System.out.println(Message.INPUT_PAIR_COMMAND.message);
-        List<String> paringInfo = getParingInfo();
-        return paringInfo;
+        return getParingInfo();
     }
 
     private static List<String> getParingInfo() {
-        return StringUtils.splitByComma(Console.readLine());
+        List<String> inputParingInfo = StringUtils.splitByComma(Console.readLine());
+        InputValidator.validateParingInput(inputParingInfo);
+        return inputParingInfo;
     }
 
     public RematchCommand readRematchCommand() {
@@ -34,7 +36,6 @@ public class InputView {
         InputValidator.validateRematch(input);
         return RematchCommand.from(input);
     }
-
 
     private enum Message {
         INPUT_PAIR_COMMAND("#############################################" + NEW_LINE
