@@ -6,7 +6,8 @@ public enum ExceptionMessage {
     INVALID_COMMAND("입력값이 잘못되었습니다."),
     INVALID_COURSE_NAME("해당하는 코스명이 없습니다."),
     INVALID_LEVEL_NAME("해당하는 레벨명이 없습니다."),
-    INVALID_INPUT_BLANK("빈 값은 입력할수 없습니다.");
+    INVALID_INPUT_BLANK("빈 값은 입력할수 없습니다."),
+    NO_MISSION_IN_LEVEL("미션이 해당하는 레벨에 없습니다.");
 
     private String message;
     private static final String BASE_MESSAGE = "[ERROR] %s";
