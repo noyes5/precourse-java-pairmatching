@@ -19,4 +19,8 @@ public class ParingInfo {
             throw new IllegalArgumentException(NO_MISSION_IN_LEVEL.getMessage());
         }
     }
+
+    public Course getCourse() {
+        return course;
+    }
 }

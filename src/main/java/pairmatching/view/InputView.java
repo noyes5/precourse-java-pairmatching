@@ -1,6 +1,6 @@
 package pairmatching.view;
 
-import static com.sun.xml.internal.ws.policy.privateutil.PolicyUtils.Text.NEW_LINE;
+import static pairmatching.util.Constants.NEW_LINE;
 
 import camp.nextstep.edu.missionutils.Console;
 import java.util.List;

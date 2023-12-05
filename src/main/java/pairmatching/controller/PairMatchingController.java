@@ -3,6 +3,7 @@ package pairmatching.controller;
 import java.util.List;
 import pairmatching.domain.Course;
 import pairmatching.domain.Level;
+import pairmatching.domain.PairResult;
 import pairmatching.domain.ParingInfo;
 import pairmatching.domain.Mission;
 import pairmatching.view.InputView;
@@ -15,6 +16,7 @@ public class PairMatchingController implements ControllerHandler {
 
     private final InputView inputView;
     private final OutputView outputView;
+    private PairResult result;
 
     private int attempts = 1;
 
@@ -26,6 +28,8 @@ public class PairMatchingController implements ControllerHandler {
     @Override
     public void process() {
         ParingInfo paringInfo = readParingInfo();
+        result = new PairResult(paringInfo);
+        outputView.printPairResult(result);
     }
 
     private ParingInfo readParingInfo() {

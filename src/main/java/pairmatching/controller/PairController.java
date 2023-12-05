@@ -2,7 +2,9 @@ package pairmatching.controller;
 
 import java.util.EnumMap;
 import java.util.Map;
+import jdk.jfr.internal.tool.Main;
 import pairmatching.domain.command.MainCommand;
+import pairmatching.util.DataInputHandler;
 import pairmatching.view.InputView;
 import pairmatching.view.OutputView;
 
@@ -32,6 +34,24 @@ public class PairController {
     }
 
     public void play() {
-        inputView.readMainOption();
+        MainCommand mainCommand;
+        do {
+            mainCommand = inputMainCommand();
+            progress(mainCommand);
+        } while (mainCommand.isPlayable());
+    }
+
+    private MainCommand inputMainCommand() {
+        while (true) {
+            try {
+                return inputView.readMainCommand();
+            } catch (IllegalArgumentException exception) {
+                outputView.printExceptionMessage(exception);
+            }
+        }
+    }
+
+    private void progress(MainCommand mainCommand) {
+        controllers.get(mainCommand).process();
     }
 }
