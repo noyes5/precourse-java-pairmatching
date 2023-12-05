@@ -1,6 +1,7 @@
 package pairmatching.domain.repository;
 
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -23,14 +24,17 @@ public class PairResults {
         return pairResults.containsKey(paringInfo);
     }
 
-    public static boolean hasSamePairInSameLevel(PairResult result) {
+    public static boolean hasSamePairsInSameLevel(PairResult result) {
         ParingInfo paringInfo = result.getPairInfo();
         Level level = paringInfo.getLevel();
 
         List<Set<Crew>> pairsFromSameLevel = getPairsFromSameLevel(level);
         List<Set<Crew>> pairs = result.getPairResult();
 
-        return pairsFromSameLevel.containsAll(pairs);
+        Set<Set<Crew>> uniquePairsFromSameLevel = new HashSet<>(pairsFromSameLevel);
+        Set<Set<Crew>> uniquePairs = new HashSet<>(pairs);
+
+        return uniquePairs.equals(uniquePairsFromSameLevel);
     }
 
     private static List<Set<Crew>> getPairsFromSameLevel(Level level) {

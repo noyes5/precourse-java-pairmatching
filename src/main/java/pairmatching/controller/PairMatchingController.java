@@ -33,6 +33,15 @@ public class PairMatchingController implements ControllerHandler {
     @Override
     public void process() {
         ParingInfo paringInfo = readParingInfo();
+        hasAlreadyMatching(paringInfo);
+        if (!PairResults.hasSamePairsInSameLevel(result)) {
+            result = new PairResult(paringInfo);
+        }
+        PairResults.addPairResult(paringInfo, result);
+        outputView.printPairResult(result);
+    }
+
+    private void hasAlreadyMatching(ParingInfo paringInfo) {
         result = new PairResult(paringInfo);
         if (PairResults.containsMatch(paringInfo)) {
             RematchCommand rematchCommand = getRematchCommand();
@@ -44,10 +53,6 @@ public class PairMatchingController implements ControllerHandler {
                 throw new IllegalArgumentException(INVALID_REMATCH_ATTEMPTS.getMessage());
             }
         }
-        if (PairResults.hasSamePairInSameLevel(result)) {
-        }
-        PairResults.addPairResult(paringInfo, result);
-        outputView.printPairResult(result);
     }
 
     private RematchCommand getRematchCommand() {

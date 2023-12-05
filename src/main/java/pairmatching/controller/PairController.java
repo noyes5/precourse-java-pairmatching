@@ -2,7 +2,6 @@ package pairmatching.controller;
 
 import java.util.EnumMap;
 import java.util.Map;
-import jdk.jfr.internal.tool.Main;
 import pairmatching.domain.command.MainCommand;
 import pairmatching.util.DataInputHandler;
 import pairmatching.view.InputView;
