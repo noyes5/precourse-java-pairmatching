@@ -8,7 +8,7 @@ import java.util.Set;
 import java.util.stream.Collectors;
 import pairmatching.domain.Level;
 import pairmatching.domain.PairResult;
-import pairmatching.domain.ParingInfo;
+import pairmatching.domain.dto.ParingInfo;
 
 public class PairResults {
     private static final Map<ParingInfo, PairResult> pairResults = new HashMap<>();
@@ -47,5 +47,9 @@ public class PairResults {
 
     public static void deleteAll() {
         pairResults.clear();
+    }
+
+    public static PairResult getByPairingInfo(ParingInfo paringInfo) {
+        return pairResults.get(paringInfo);
     }
 }

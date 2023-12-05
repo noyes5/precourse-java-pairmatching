@@ -1,8 +1,11 @@
-package pairmatching.domain;
+package pairmatching.domain.dto;
 
 import static pairmatching.util.ExceptionMessage.NO_MISSION_IN_LEVEL;
 
 import java.util.Objects;
+import pairmatching.domain.Course;
+import pairmatching.domain.Level;
+import pairmatching.domain.Mission;
 import pairmatching.domain.repository.Missions;
 
 public class ParingInfo {

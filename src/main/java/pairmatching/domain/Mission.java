@@ -9,11 +9,7 @@ public class Mission {
     public Mission(String name) {
         this.name = name;
     }
-
-    public Mission(String name, Level level) {
-        this.name = name;
-    }
-
+    
     @Override
     public boolean equals(Object o) {
         if (this == o) {
