@@ -1,19 +1,21 @@
 package pairmatching.controller;
 
+import static pairmatching.util.Constants.COURSE_INDEX;
+import static pairmatching.util.Constants.LEVEL_INDEX;
+import static pairmatching.util.Constants.MISSION_INDEX;
+
 import java.util.List;
+import jdk.internal.util.xml.impl.Pair;
 import pairmatching.domain.Course;
 import pairmatching.domain.Level;
 import pairmatching.domain.PairResult;
+import pairmatching.domain.PairResults;
 import pairmatching.domain.ParingInfo;
 import pairmatching.domain.Mission;
 import pairmatching.view.InputView;
 import pairmatching.view.OutputView;
 
 public class PairMatchingController implements ControllerHandler {
-    private static final int COURSE_INDEX = 0;
-    private static final int LEVEL_INDEX = 1;
-    private static final int MISSION_INDEX = 2;
-
     private final InputView inputView;
     private final OutputView outputView;
     private PairResult result;
@@ -29,6 +31,7 @@ public class PairMatchingController implements ControllerHandler {
     public void process() {
         ParingInfo paringInfo = readParingInfo();
         result = new PairResult(paringInfo);
+        PairResults.addPairResult(paringInfo, result);
         outputView.printPairResult(result);
     }
 

@@ -2,6 +2,8 @@ package pairmatching.domain;
 
 import static pairmatching.util.ExceptionMessage.NO_MISSION_IN_LEVEL;
 
+import java.util.Objects;
+
 public class ParingInfo {
     private Course course;
     private Level level;
@@ -22,5 +24,31 @@ public class ParingInfo {
 
     public Course getCourse() {
         return course;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        ParingInfo that = (ParingInfo) o;
+        return course == that.course && level == that.level && Objects.equals(mission, that.mission);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(course, level, mission);
+    }
+
+    @Override
+    public String toString() {
+        return "ParingInfo{" +
+                "course=" + course +
+                ", level=" + level +
+                ", mission=" + mission +
+                '}';
     }
 }

@@ -20,6 +20,10 @@ public enum MainCommand {
         this.display = display;
     }
 
+    public boolean isPlayable() {
+        return this != APPLICATION_EXIT;
+    }
+
     public static MainCommand from(String input) {
         return Arrays.stream(MainCommand.values())
                 .filter(command -> command.command.equals(input))
