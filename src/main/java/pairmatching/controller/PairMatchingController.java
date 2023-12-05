@@ -3,7 +3,6 @@ package pairmatching.controller;
 import static pairmatching.util.Constants.COURSE_INDEX;
 import static pairmatching.util.Constants.LEVEL_INDEX;
 import static pairmatching.util.Constants.MISSION_INDEX;
-import static pairmatching.util.ExceptionMessage.CANNOT_MATCH;
 import static pairmatching.util.ExceptionMessage.INVALID_REMATCH_ATTEMPTS;
 
 import java.util.List;

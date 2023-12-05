@@ -35,9 +35,14 @@ public class OutputView {
         System.out.println(NO_MATCH_HISTORY.getMessage());
     }
 
+    public void printCompleteResultsInitialized() {
+        System.out.println(Message.PAIR_INITIALIZED.message);
+    }
+
 
     private enum Message {
-        PAIR_MATCHING_RESULT("페어 매칭 결과입니다.");
+        PAIR_MATCHING_RESULT("페어 매칭 결과입니다."),
+        PAIR_INITIALIZED("초기화 되었습니다.");
 
         private final String message;
 

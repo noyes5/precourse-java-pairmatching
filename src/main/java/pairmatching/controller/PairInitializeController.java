@@ -1,5 +1,6 @@
 package pairmatching.controller;
 
+import pairmatching.domain.PairResults;
 import pairmatching.view.InputView;
 import pairmatching.view.OutputView;
 
@@ -14,6 +15,7 @@ public class PairInitializeController implements ControllerHandler {
 
     @Override
     public void process() {
-
+        PairResults.deleteAll();
+        outputView.printCompleteResultsInitialized();
     }
 }
